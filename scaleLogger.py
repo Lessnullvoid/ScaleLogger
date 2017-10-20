@@ -1,10 +1,13 @@
 #/Estrutura:
 # - Un archivo por codigo
-# - datos datetime + serial en la ultima posicion de la lista
-# selecionar nombre de lista con raw input
+# - 39 posiciones en formato de row
+# - 39 archivos en formato indivdual >> depende del modelo que se seleccione
+# - datos datetime + serial en la ultima posicion de la lista save
+# selecionar nombre de lista con raw_input
 # if seleciona el archivo para abrir y el archivo de escritura
 # escribir valor desde el puerto serial en la celda siguiente
-# raw input selecionar otro usuario
+# raw_input selecionar otro usuario, ingresar otro dato, guardar
+
 
 import datetime
 import csv
@@ -14,7 +17,13 @@ import serial as ser
 import string
 from time import sleep
 import pandas as pd
+import pygame.locals import *
 
+disp_w = 1000
+disp_h = 600
+pygame.init()
+screen = pygame.display.set_mode((disp_w, disp_h))
+pygame.display.set_caption('[Scale:Logger]')
 
 # in the case of using just one file to add data per row
 with open('autumn.csv', 'rb') as f:
